@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303030"
+    android:gravity="center">
+
+
+    <TextView
+        android:id="@+id/GyroValueX"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/gyrometer"
+        android:textColor="#ffe135"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/GyroValueY"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/GyroValueX"
+        android:text="@string/gyrometer"
+        android:textColor="#ffe135"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/GyroValueZ"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/GyroValueY"
+        android:text="@string/gyrometer"
+        android:textColor="#ffe135"
+        android:textSize="30sp" />
+
+</RelativeLayout>
