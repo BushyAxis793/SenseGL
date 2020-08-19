@@ -9,18 +9,20 @@
         android:id="@+id/MagnoValueX"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/magnetometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/MagnoValueY"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/MagnoValueX"
-        android:text="@string/magnetometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
     <TextView
@@ -28,9 +30,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/MagnoValueY"
-        android:text="@string/magnetometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

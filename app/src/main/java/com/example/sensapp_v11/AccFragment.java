@@ -3,6 +3,7 @@ package com.example.sensapp_v11;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -27,6 +28,7 @@ public class AccFragment extends Fragment implements SensorEventListener {
     TextView xAccTV, yAccTV, zAccTV;
     SensorManager sensorManager;
     Sensor accelerometer;
+    boolean hasAcc;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +50,16 @@ public class AccFragment extends Fragment implements SensorEventListener {
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         sensorManager.registerListener(AccFragment.this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+
+        PackageManager manager = getActivity().getPackageManager();
+
+        hasAcc = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_ACCELEROMETER);
+
+        if (!hasAcc) {
+
+            xAccTV.setText("Accelerometer not supported on this device");
+
+        }
     }
 
     @Override
@@ -62,8 +74,8 @@ public class AccFragment extends Fragment implements SensorEventListener {
         } else {
 
             xAccTV.setText("Accelerometer not supported on this device");
-            yAccTV.setText("Accelerometer not supported on this device");
-            zAccTV.setText("Accelerometer not supported on this device");
+            yAccTV.setText("");
+            zAccTV.setText("");
         }
     }
 

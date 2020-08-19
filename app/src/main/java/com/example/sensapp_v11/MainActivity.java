@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawer;
     private Object savedInstanceState;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

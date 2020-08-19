@@ -1,6 +1,7 @@
 package com.example.sensapp_v11;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +21,7 @@ public class LightFragment extends Fragment implements SensorEventListener {
     TextView lightTV;
     SensorManager sensorManager;
     Sensor lightSensor;
+    boolean hasLight;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,15 +41,25 @@ public class LightFragment extends Fragment implements SensorEventListener {
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
         sensorManager.registerListener(LightFragment.this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
+        PackageManager manager = getActivity().getPackageManager();
+
+        hasLight = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_LIGHT);
+
+        if (!hasLight) {
+
+            lightTV.setText("Light Sensor not supported on this device");
+
+        }
     }
 
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         Sensor sensor = sensorEvent.sensor;
-        if (sensor.getType() == Sensor.TYPE_RELATIVE_HUMIDITY) {
+        if (sensor.getType() == Sensor.TYPE_LIGHT) {
 
-            lightTV.setText(String.format("%.2f", +(int) sensorEvent.values[0]) + "\t\t\t" + "[lux]");
+            lightTV.setText(String.format("%.2f", +sensorEvent.values[0]) + "\t\t\t" + "[lux]");
 
         } else {
 

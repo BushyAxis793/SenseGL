@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view"
-    android:iconTint="#303030">
+    android:iconTint="#303030"
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_acc"
             android:icon="@drawable/ic_baseline_chevron_right_24"
+            android:textStyle="bold"
             android:title="@string/accelerometer" />
 
         <item
             android:id="@+id/nav_gyro"
             android:icon="@drawable/ic_baseline_chevron_right_24"
+            android:textStyle="bold"
             android:title="@string/gyrometer" />
 
         <item
             android:id="@+id/nav_magno"
             android:icon="@drawable/ic_baseline_chevron_right_24"
+            android:textStyle="bold"
             android:title="@string/magnetometer" />
 
         <item
             android:id="@+id/nav_light"
             android:icon="@drawable/ic_baseline_chevron_right_24"
+            android:textStyle="bold"
             android:title="@string/light_sensor" />
 
         <item
             android:id="@+id/nav_pressure"
             android:icon="@drawable/ic_baseline_chevron_right_24"
+            android:textStyle="bold"
             android:title="@string/pressure_sensor" />
 
         <item
             android:id="@+id/nav_temp"
             android:icon="@drawable/ic_baseline_chevron_right_24"
+            android:textStyle="bold"
             android:title="@string/temperature_sensor" />
 
         <item
             android:id="@+id/nav_humi"
             android:icon="@drawable/ic_baseline_chevron_right_24"
+            android:textStyle="bold"
             android:title="@string/humidity_sensor" />
     </group>
 

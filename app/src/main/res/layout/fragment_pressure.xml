@@ -10,8 +10,9 @@
         android:id="@+id/PressureValue"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/pressure_sensor"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold"/>
 
 </RelativeLayout>

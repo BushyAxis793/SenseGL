@@ -15,6 +15,7 @@
         android:text="SenseGL"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#ffe135"
-        android:textSize="60sp" />
+        android:textSize="60sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

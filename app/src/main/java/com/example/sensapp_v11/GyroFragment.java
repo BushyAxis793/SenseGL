@@ -1,6 +1,7 @@
 package com.example.sensapp_v11;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +21,7 @@ public class GyroFragment extends Fragment implements SensorEventListener {
     TextView xGyroTV, yGyroTV, zGyroTV;
     SensorManager sensorManager;
     Sensor gyroscope;
+    boolean hasGyro;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +43,16 @@ public class GyroFragment extends Fragment implements SensorEventListener {
         gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
         sensorManager.registerListener(GyroFragment.this, gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
+
+        PackageManager manager = getActivity().getPackageManager();
+
+        hasGyro = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE);
+
+        if (!hasGyro) {
+
+            xGyroTV.setText("Gyroscope not supported on this device");
+
+        }
     }
 
 
@@ -56,8 +68,8 @@ public class GyroFragment extends Fragment implements SensorEventListener {
         } else {
 
             xGyroTV.setText("Gyroscope not supported on this device");
-            yGyroTV.setText("Gyroscope not supported on this device");
-            zGyroTV.setText("Gyroscope not supported on this device");
+            yGyroTV.setText("");
+            zGyroTV.setText("");
         }
     }
 

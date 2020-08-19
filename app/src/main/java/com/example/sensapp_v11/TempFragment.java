@@ -1,6 +1,7 @@
 package com.example.sensapp_v11;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +21,7 @@ public class TempFragment extends Fragment implements SensorEventListener {
     TextView tempTV;
     SensorManager sensorManager;
     Sensor tempSensor;
+    boolean hasTemp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +41,16 @@ public class TempFragment extends Fragment implements SensorEventListener {
         tempSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
 
         sensorManager.registerListener(TempFragment.this, tempSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
+        PackageManager manager = getActivity().getPackageManager();
+
+        hasTemp = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_AMBIENT_TEMPERATURE);
+
+        if (!hasTemp) {
+
+            tempTV.setText("Temperature Sensor not supported on this device");
+
+        }
     }
 
 
@@ -47,7 +59,7 @@ public class TempFragment extends Fragment implements SensorEventListener {
         Sensor sensor = sensorEvent.sensor;
         if (sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE) {
 
-            tempTV.setText("" + String.format("%.4f", +sensorEvent.values[0]) + "\t\t\t" + "[°C]");
+            tempTV.setText(String.format("%.2f", +sensorEvent.values[0]) + "\t\t\t" + "[°C]");
 
         } else {
 

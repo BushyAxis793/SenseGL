@@ -12,27 +12,30 @@
         android:id="@+id/AccValueX"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/accelerometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/AccValueY"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/AccValueX"
-        android:text="@string/accelerometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/AccValueZ"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/AccValueY"
-        android:text="@string/accelerometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

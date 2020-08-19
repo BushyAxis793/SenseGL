@@ -1,6 +1,7 @@
 package com.example.sensapp_v11;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +21,7 @@ public class MagnoFragment extends Fragment implements SensorEventListener {
     TextView xMagnoTV, yMagnoTV, zMagnoTV;
     SensorManager sensorManager;
     Sensor magnetometer;
+    boolean hasMagno;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +43,16 @@ public class MagnoFragment extends Fragment implements SensorEventListener {
         magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         sensorManager.registerListener(MagnoFragment.this, magnetometer, SensorManager.SENSOR_DELAY_NORMAL);
+
+        PackageManager manager = getActivity().getPackageManager();
+
+        hasMagno = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS);
+
+        if (!hasMagno) {
+
+            xMagnoTV.setText("Magnetometer not supported on this device");
+
+        }
     }
 
 
@@ -56,8 +68,8 @@ public class MagnoFragment extends Fragment implements SensorEventListener {
         } else {
 
             xMagnoTV.setText("Magnetometer not supported on this device");
-            yMagnoTV.setText("Magnetometer not supported on this device");
-            zMagnoTV.setText("Magnetometer not supported on this device");
+            yMagnoTV.setText("");
+            zMagnoTV.setText("");
         }
     }
 

@@ -11,4 +11,5 @@
     <string name="temperature_sensor">Temperature Sensor</string>
     <string name="humidity_sensor">Humidity Sensor</string>
     <string name="sensapp">SensApp</string>
+    <string name="home" />
 </resources>

@@ -1,6 +1,8 @@
 package com.example.sensapp_v11;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +22,7 @@ public class PressureFragment extends Fragment implements SensorEventListener {
     TextView pressureTV;
     SensorManager sensorManager;
     Sensor pressureSensor;
+    Boolean hasPressure;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +42,15 @@ public class PressureFragment extends Fragment implements SensorEventListener {
         pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
         sensorManager.registerListener(PressureFragment.this, pressureSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
+        PackageManager manager = getActivity().getPackageManager();
+
+        hasPressure = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_BAROMETER);
+
+        if (!hasPressure) {
+
+            pressureTV.setText("Pressure Sensor not supported on this device");
+        }
     }
 
 
@@ -47,7 +59,7 @@ public class PressureFragment extends Fragment implements SensorEventListener {
         Sensor sensor = sensorEvent.sensor;
         if (sensor.getType() == Sensor.TYPE_PRESSURE) {
 
-            pressureTV.setText("" + String.format("%.4f", +sensorEvent.values[0]) + "\t\t\t" + "[hPa]");
+            pressureTV.setText(String.format("%.2f", +sensorEvent.values[0]) + "\t\t\t" + "[hPa]");
 
         } else {
 

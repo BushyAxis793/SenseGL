@@ -10,18 +10,20 @@
         android:id="@+id/GyroValueX"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/gyrometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/GyroValueY"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/GyroValueX"
-        android:text="@string/gyrometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
     <TextView
@@ -29,8 +31,9 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/GyroValueY"
-        android:text="@string/gyrometer"
+        android:text=""
         android:textColor="#ffe135"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
