@@ -10,7 +10,6 @@
 - [General Info](#general-info)
 - [Technologies](#technologies)
 - [Features](#features)
-- [Setup](#setup)
 - [Status](#status)
 - [Contact](#contact)
 
